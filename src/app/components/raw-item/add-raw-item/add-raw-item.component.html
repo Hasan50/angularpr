@@ -1,0 +1,48 @@
+<div class="modal-header">
+  <h4 class="modal-title" style="font-size: 17px;">ADD RAW ITEM</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12">
+      <form #form="ngForm" novalidate class="row">
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Name" name="Name" [(ngModel)]="RawItemOb.Name" maxlength="150" #Name="ngModel"
+              required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Quantity" name="Quantity" [(ngModel)]="RawItemOb.Quantity" maxlength="60"
+              #Quantity="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Weight" name="Weight" [(ngModel)]="RawItemOb.Weight" maxlength="150"
+              #Weight="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Price" name="Price" [(ngModel)]="RawItemOb.Price" maxlength="150"
+              #Price="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="ImagePath" name="ImagePath" [(ngModel)]="RawItemOb.ImagePath" maxlength="150"
+              #ImagePath="ngModel">
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="activeModal.close('Cross click')">Close</button>
+  <button type="submit" class="btn btn-light" (click)="SaveOrUpdate()">{{popupModel.Id == "0"?"Save":"Update"}}</button>
+</div>

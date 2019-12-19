@@ -1,0 +1,67 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row"
+      style="margin-top: 50px;">
+      <div class="col-md-6"
+        style="padding-top: 11px;">
+        <p style="font-weight: bold;color: #9FABA4;"> STAGE TREE MANAGEMENT</p>
+      </div>
+      <div class="col-md-6">
+        <button _ngcontent-xej-c8=""
+          class="btn btn-success btn-round pull-right mat-raised-button"
+          mat-raised-button=""
+          (click)="openStageTreeAddOrEditPopup('0')"
+          type="submit"><span class="mat-button-wrapper">ADD STAGE TREE</span>
+          <div class="mat-button-ripple mat-ripple"
+            matripple=""></div>
+          <div class="mat-button-focus-overlay"></div>
+        </button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+
+          <div class="card-body">
+            <div class="table-responsive">
+
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>Name</th>
+                  <!-- <th>Created By Id</th>
+                  <th>Created At</th> -->
+                  <th>Is Active</th>
+                  <th>Actions</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let a of dataList">
+                    <td>{{a.Name}}</td>
+                    <!-- <td>{{a.CreatedById}}</td>
+                    <td>{{a.CreatedAt}}</td> -->
+                    <!-- <td>{{a.IsActive}}</td> -->
+                    <td>
+                      <span *ngIf="a.IsActive"
+                        class="badge badge-success">{{a.IsActive?'Yes':'No'}}</span>
+                      <span *ngIf="!a.IsActive"
+                        class="badge badge-warning">{{a.IsActive?'Yes':'No'}}</span>
+                    </td>
+                    <td>
+                      <i class="material-icons pointer"
+                        ngbTooltip="Edit"
+                        (click)="openStageTreeEditPopup(a.Id)">edit</i>
+                      <i class="material-icons pointer"
+                        ngbTooltip="Delete"
+                        tooltipClass="tooltipClass"
+                        (click)="openConfirmationDialog(a.Id)">delete</i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

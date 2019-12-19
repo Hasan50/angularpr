@@ -1,0 +1,88 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row"
+      style="margin-top: 50px;">
+      <div class="col-md-6"
+        style="padding-top: 11px;">
+        <p style="font-weight: bold;color: #9FABA4;">CONTRACTOR PROJECT MANAGEMENT</p>
+      </div>
+      <!-- <div class="col-md-6">
+        <button _ngcontent-xej-c8=""
+          class="btn btn-success btn-round pull-right mat-raised-button"
+          mat-raised-button=""
+          (click)="openContractorProjectAddOrEditPopup('0')"
+          type="submit"><span class="mat-button-wrapper">ADD PROJECT</span>
+          <div class="mat-button-ripple mat-ripple"
+            matripple=""></div>
+          <div class="mat-button-focus-overlay"></div>
+        </button>
+      </div> -->
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>Code</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                  <!--  <th>FeedBackId</th>
+                  <th>TiltAngle</th>
+                  <th>GroundClearance</th>
+                  <th>PanelConfig</th> -->
+                  <!-- <th>Instructions</th> -->
+                  <th>Doucments</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let a of dataList">
+                    <td>{{a.ProjectCode}}</td>
+                    <td>{{a.ProjectTitle}}</td>
+                    <td>{{a.Description}}</td>
+                    <td>{{a.Location}}</td>
+                    <td>
+                      <!-- {{a.StatusName}} -->
+                      <span *ngIf="a.StatusName=='Confirmed'"
+                        class="badge badge-success">{{a.StatusName}}</span>
+                      <span *ngIf="a.StatusName=='Pending'"
+                        class="badge badge-secondary">{{a.StatusName}}</span>
+                      <span *ngIf="a.StatusName=='Cancel'"
+                        class="badge badge-danger">{{a.StatusName}}</span>
+                      <span *ngIf="a.StatusName=='Complete'"
+                        class="badge badge-danger">{{a.StatusName}}</span>
+                    </td>
+                    <td>
+                      <span class="pointer fontBold"
+                        (click)="openDocumentsModal(a.Id)">
+                        Document List
+                      </span>
+                    </td>
+                    <!--  <td>{{a.FeedBackId}}</td>
+                    <td>{{a.TiltAngle}}</td>
+                    <td>{{a.GroundClearance}}</td>
+                    <td>{{a.PanelConfig}}</td>
+                    <td>{{a.Instructions}}</td> -->
+                    <!-- <td>
+                      <span *ngIf="a.IsActive"
+                        class="badge badge-success">{{a.Status}}</span>
+                      <span *ngIf="!a.IsActive"
+                        class="badge badge-warning">{{a.Status}}</span>
+                    </td> -->
+                    <!-- <td>
+                      <i class="material-icons pointer"
+                        (click)="openClientProjectAddOrEditPopup(a.Id)">edit</i>
+                    </td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

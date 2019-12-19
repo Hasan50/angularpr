@@ -1,0 +1,75 @@
+<div class="main-content"
+  style="display: block">
+  <div class="container-fluid">
+    <div class="row col-md-12"
+      style="margin-top: 50px;">
+      <div class="col-md-12">
+        <div class="titleDiv row">
+          <div class="col-md-6 row">
+            <h4 class="title">Project Name : &nbsp;</h4>
+            <h4> {{this.ProjectOb.ProjectTitle}}</h4>
+          </div>
+          <div class="col-md-6 row">
+            <h4 class="title">Project Code : &nbsp;</h4>
+            <h4> {{this.ProjectOb.ProjectCode}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row"
+          id="modalId">
+          <div class="col-md-12">
+            <div class="row"
+              style="height: 480px">
+              <div class="col statusCol"
+                *ngFor="let x of lavelWithSerialList">
+                <div *ngFor="let y of x.SerialList"
+                  class="statusBlock pointer"
+                  [ngClass]="{greenbg: y.IsComplete, whitebd: !y.IsComplete}"
+                  attr.id="{{y.StageId}}">
+                  {{y.Name}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="modal-body">
+      <div class="titleDiv row">
+        <div class="col-md-6 row">
+          <h4 class="title">Project Name : &nbsp;</h4>
+          <h4> {{this.ProjectOb.ProjectTitle}}</h4>
+        </div>
+        <div class="col-md-6 row">
+          <h4 class="title">Project Code : &nbsp;</h4>
+          <h4> {{this.ProjectOb.ProjectCode}}</h4>
+        </div>
+      </div>
+
+      <div class="row"
+        id="modalId">
+        <div class="col-md-12">
+          <div class="row"
+            style="height: 480px">
+            <div class="col statusCol"
+              *ngFor="let x of lavelWithSerialList">
+              <div *ngFor="let y of x.SerialList"
+                class="statusBlock pointer"
+                [ngClass]="{greenbg: y.IsComplete, whitebd: !y.IsComplete}"
+                attr.id="{{y.StageId}}">
+                {{y.Name}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+<!-- </div>
+    </div> -->

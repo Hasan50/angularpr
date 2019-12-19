@@ -1,0 +1,70 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row"
+      style="margin-top: 50px;">
+      <div class="col-md-6"
+        style="padding-top: 11px;">
+        <p style="font-weight: bold;color: #9FABA4;"> Area</p>
+      </div>
+      <div class="col-md-6">
+        <button _ngcontent-xej-c8=""
+          class="btn btn-light btn-round pull-right mat-raised-button"
+          mat-raised-button=""
+          (click)="openAddOrEditPopup('0')"
+          type="submit"><span class="mat-button-wrapper">Add Area</span>
+          <div class="mat-button-ripple mat-ripple"
+            matripple=""></div>
+          <div class="mat-button-focus-overlay"></div>
+        </button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+
+          <div class="card-body">
+            <div class="table-responsive">
+
+              <table class="table">
+                <thead class=" text-primary">
+
+                  <th>Area Name</th>
+                  <th>Actions</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let a of dataList">
+
+                    <td>{{a.Name}}</td>
+
+                    <td>
+                      <i class="material-icons pointer"
+                        ngbTooltip="Edit"
+                        tooltipClass="tooltipClass"
+                        (click)="openClientEditPopup(a.Id)">edit</i>
+                      <i class="material-icons pointer"
+                        ngbTooltip="Delete"
+                        tooltipClass="tooltipClass"
+                        (click)="openConfirmationDialog(a.Id)">delete</i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="d-block text-center card-footer">
+              <ngb-pagination *ngIf="totalItems > 10"
+                [pageSize]="itemsPerPage"
+                [collectionSize]="totalItems"
+                [(page)]="page"
+                [maxSize]="7"
+                [rotate]="true"
+                [boundaryLinks]="true"
+                (pageChange)="loadPage($event)"></ngb-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+</div>

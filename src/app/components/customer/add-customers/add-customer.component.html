@@ -1,0 +1,364 @@
+<div class="modal-header">
+  <h4 class="modal-title" style="font-size: 17px;">ADD CUSTOMER</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12">
+      <form #form="ngForm" novalidate class="row">
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="User name to login" name="LoginID" [(ngModel)]="CustomerOb.LoginID"
+              maxlength="150" #LoginID="ngModel" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Full Name" name="FullName" [(ngModel)]="CustomerOb.FullName" maxlength="150"
+              #Name="ngModel" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput type="password" name="Password" placeholder="Password" [(ngModel)]="CustomerOb.Password"
+              maxlength="150" #Name="ngModel" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput type="password" name="ConfirmPassword" placeholder="Confirm Password"
+              [(ngModel)]="CustomerOb.ConfirmPassword" maxlength="150" #Name="ngModel" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Cell No" name="PhoneNumber" [(ngModel)]="CustomerOb.PhoneNumber" maxlength="60"
+              #PhoneNumber="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Email" name="Email" [(ngModel)]="CustomerOb.Email" maxlength="150"
+              #Email="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input type="text" matInput name="DathOfBirth" [(ngModel)]="CustomerOb.DathOfBirth" #DathOfBirth="ngModel"
+              placeholder="Dath of birth" class="form-control"
+              [bsConfig]="{ isAnimated: true, adaptivePosition: true, dateInputFormat: 'DD/MM/YYYY' }" bsDatepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6 row">
+          <label class="col-sm-3">Gender</label>
+          <mat-radio-group aria-label="Select an option" [(ngModel)]="CustomerOb.Gender" #Gender="ngModel" name='Gender'
+            class="col-sm-9">
+            <mat-radio-button value="male" style="margin-right: 10px">Male</mat-radio-button>
+            <mat-radio-button value="female">Female</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="NID No." name="NationalId" [(ngModel)]="CustomerOb.NationalId" maxlength="150"
+              #NationalId="ngModel">
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Name of Company" name="CompanyName" [(ngModel)]="CustomerOb.CompanyName"
+              maxlength="150" #CompanyName="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-12">
+          <mat-form-field>
+            <textarea matInput placeholder="Company Address" name="Address" [(ngModel)]="CustomerOb.Address"
+              maxlength="250" #Address="ngModel"></textarea>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Department" name="Department" [(ngModel)]="CustomerOb.Department"
+              maxlength="50" #Department="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Section" name="Section" [(ngModel)]="CustomerOb.Section" maxlength="50"
+              #Section="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Designation" name="Designation" [(ngModel)]="CustomerOb.Designation"
+              maxlength="60" #Designation="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Name of Reference if" name="ReferencePersonName"
+              [(ngModel)]="CustomerOb.ReferencePersonName" maxlength="150" #ReferencePersonName="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Reference Cell No" name="ReferencePersonCellNumber"
+              [(ngModel)]="CustomerOb.ReferencePersonCellNumber" maxlength="60" #ReferencePersonCellNumber="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field>
+            <mat-select placeholder="Blood Group" name="BloodGroup" [(ngModel)]="CustomerOb.BloodGroup"
+              #BloodGroup="ngModel">
+              <mat-option *ngFor="let bloodGroup of bloodGroupList" [value]="bloodGroup.Id">{{ bloodGroup.Name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-checkbox name="Allergy" [(ngModel)]="CustomerOb.Allergy" #Allergy="ngModel">Allergy</mat-checkbox>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Allergy Detail" name="AllergyDetail" [(ngModel)]="CustomerOb.AllergyDetail"
+              maxlength="250" #AllergyDetail="ngModel">
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Weight" name="Weight" [(ngModel)]="CustomerOb.Weight" #Weight="ngModel">
+            <span matSuffix>KG</span>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Height" name="Height" [(ngModel)]="CustomerOb.Height" #Height="ngModel">
+            <span matSuffix>CM</span>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Diabetes" name="Diabetes" [(ngModel)]="CustomerOb.Diabetes" maxlength="60"
+              #Diabetes="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput name="BP" placeholder="BP" [(ngModel)]="CustomerOb.BP" maxlength="10" #BP="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-12 row">
+          <h3 class="col-sm-12" style="margin: 15px; text-align: center; border-bottom: 1px solid #ccc">Payment Term
+          </h3>
+          <mat-tab-group dynamicHeight style="width: 100%" mat-align-tabs="center" [selectedIndex]="selectedTab">
+            <mat-tab *ngFor="let b of tabs let i = index" [label]="b">
+              <div class="card-body d-flex justify-content-center" #target>
+                <div class="spinner-wrapper">
+                  <mat-spinner [hidden]="!loading"></mat-spinner>
+                </div>
+                <div class="row col-md-12">
+                  <mat-checkbox class="col-sm-12" (change)="onDaySiftCheckboxChange(b, $event)">{{b}}
+                  </mat-checkbox>
+                  <div class="col-sm-6">
+                    <!-- morning -->
+                    <mat-radio-group aria-label="Select an option" [(ngModel)]="dayShiftMornigPackgeOb.PackageId"
+                      #PackageId="ngModel" name='dayShiftMornigPackgeOb' class="col-sm-9" *ngIf="b == 'BreackFast' && dayShiftMornigPackgeOb.DayShiftId">
+                      <ul class="list-group">
+                        <li class="list-group-item" style="padding: 3px 10px"
+                          *ngFor="let a of packageList; let i = index">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <mat-radio-button value="{{a.Id}}" style="margin-right: 10px"
+                                (change)="onPackageChange(a,$event)">{{a.Name}}
+                              </mat-radio-button>
+                            </div>
+                            <div class="col-sm-6">
+                              <input matInput *ngIf="dayShiftMornigPackgeOb.PackageId===a.Id" name="Amount"
+                                placeholder="Amount" [(ngModel)]="dayShiftMornigPackgeOb.Amount" maxlength="10"
+                                #Amount="ngModel">
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </mat-radio-group>
+                    <!-- Lunch -->
+                    <mat-radio-group aria-label="Select an option" [(ngModel)]="dayShiftLunchPackgeOb.PackageId"
+                      #PackageId="ngModel" name='dayShiftLunchPackgeOb' class="col-sm-9" *ngIf="b == 'Lunch' && dayShiftLunchPackgeOb.DayShiftId">
+                      <ul class="list-group">
+                        <li class="list-group-item" style="padding: 3px 10px"
+                          *ngFor="let a of packageList; let i = index">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <mat-radio-button value="{{a.Id}}" style="margin-right: 10px"
+                                (change)="onPackageChange(a,$event)">{{a.Name}}
+                              </mat-radio-button>
+                            </div>
+                            <div class="col-sm-6">
+                              <input matInput *ngIf="dayShiftLunchPackgeOb.PackageId===a.Id" name="Amount"
+                                placeholder="Amount" [(ngModel)]="dayShiftLunchPackgeOb.Amount" maxlength="10"
+                                #Amount="ngModel">
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </mat-radio-group>
+                    <!-- Diner -->
+                    <mat-radio-group aria-label="Select an option" [(ngModel)]="dayShiftDinerPackgeOb.PackageId"
+                      #PackageId="ngModel" name='dayShiftDinerPackgeOb' class="col-sm-9" *ngIf="b == 'Diner' && dayShiftDinerPackgeOb.DayShiftId">
+                      <ul class="list-group">
+                        <li class="list-group-item" style="padding: 3px 10px"
+                          *ngFor="let a of packageList; let i = index">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <mat-radio-button value="{{a.Id}}" style="margin-right: 10px"
+                                (change)="onPackageChange(a,$event)">{{a.Name}}
+                              </mat-radio-button>
+                            </div>
+                            <div class="col-sm-6">
+                              <input matInput *ngIf="dayShiftDinerPackgeOb.PackageId===a.Id" name="Amount"
+                                placeholder="Amount" [(ngModel)]="dayShiftDinerPackgeOb.Amount" maxlength="10"
+                                #Amount="ngModel">
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </mat-radio-group>
+                  </div>
+                  <div class="col-sm-6">
+                    <!-- morning -->
+                    <mat-radio-group aria-label="Select an option" [(ngModel)]="dayShiftMornigPackgeOb.PeriodTypeId"
+                      #PeriodTypeId="ngModel" name='dayShiftMornigPackgeObPeriodTypeId' class="col-sm-9"
+                      *ngIf="b == 'BreackFast' && dayShiftMornigPackgeOb.DayShiftId">
+                      <ul class="list-group">
+                        <li class="list-group-item" style="padding: 3px 10px"
+                          *ngFor="let a of periodTypes; let i = index">
+                          <mat-radio-button value="{{a.Id}}" style="margin-right: 10px">{{a.Name}}{{" "}}{{a.Count}}
+                          </mat-radio-button>
+                        </li>
+                      </ul>
+                    </mat-radio-group>
+                    <!-- Lunch -->
+                    <mat-radio-group aria-label="Select an option" [(ngModel)]="dayShiftLunchPackgeOb.PeriodTypeId"
+                      #PeriodTypeId="ngModel" name='dayShiftLunchPackgeObPeriodTypeId' class="col-sm-9"
+                      *ngIf="b == 'Lunch' && dayShiftLunchPackgeOb.DayShiftId">
+                      <ul class="list-group">
+                        <li class="list-group-item" style="padding: 3px 10px"
+                          *ngFor="let a of periodTypes; let i = index">
+                          <mat-radio-button value="{{a.Id}}" style="margin-right: 10px">{{a.Name}}{{" "}}{{a.Count}}
+                          </mat-radio-button>
+                        </li>
+                      </ul>
+                    </mat-radio-group>
+                    <!-- Diner -->
+                    <mat-radio-group aria-label="Select an option" [(ngModel)]="dayShiftDinerPackgeOb.PeriodTypeId"
+                      #PeriodTypeId="ngModel" name='dayShiftDinerPackgeObPeriodTypeId' class="col-sm-9"
+                      *ngIf="b == 'Diner' && dayShiftDinerPackgeOb.DayShiftId">
+                      <ul class="list-group">
+                        <li class="list-group-item" style="padding: 3px 10px"
+                          *ngFor="let a of periodTypes; let i = index">
+                          <mat-radio-button value="{{a.Id}}" style="margin-right: 10px">{{a.Name}}{{" "}}{{a.Count}}
+                          </mat-radio-button>
+                        </li>
+                      </ul>
+                    </mat-radio-group>
+
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+
+
+          </mat-tab-group>
+          <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Registration Amount" (keypress)="numberOnly($event)"
+              [(ngModel)]="CustomerOb.RegistrationAmount" maxlength="60" #RegistrationAmount="ngModel">
+          </mat-form-field>
+        </div>
+
+
+
+          <!-- <div class="col-sm-4">
+            <div>
+              <ul class="list-group">
+                <li class="list-group-item" style="padding: 3px 10px" *ngFor="let b of dayShiftList">
+                  <mat-checkbox (change)="onDaySiftCheckboxChange(b, $event)">{{b.Text}}</mat-checkbox>
+                </li>
+              </ul>
+            </div>
+          </div> -->
+
+
+        </div>
+        <div class="col-md-12 row">
+          <h3 class="col-sm-12" style="margin: 15px; text-align: center; border-bottom: 1px solid #ccc">Week day off
+          </h3>
+          <div class="col-md-3" *ngFor="let b of weekDayList">
+            <mat-checkbox (change)="onCheckboxChange(b,$event)">{{b}}</mat-checkbox>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Special Menu (If any request)" [(ngModel)]="CustomerOb.SpecialMenu"
+              maxlength="60" #SpecialMenu="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Replacement Menu" [(ngModel)]="CustomerOb.ReplacementMenu" maxlength="60"
+              #ReplacementMenu="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Additional Price for Each Menu" [(ngModel)]="CustomerOb.AdditionalPriceEach"
+              maxlength="60" #AdditionalPriceEach="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input type="text" matInput name="LunchStartDate" [(ngModel)]="CustomerOb.LunchStartDate"
+              #LunchStartDate="ngModel" placeholder="Lunch Start From Date" class="form-control"
+              [bsConfig]="{ isAnimated: true, adaptivePosition: true, dateInputFormat: 'DD/MM/YYYY' }" bsDatepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-12">
+          <mat-form-field>
+            <textarea matInput placeholder="Lunch Receive Address" name="LunchReceiveAddress"
+              [(ngModel)]="CustomerOb.LunchReceiveAddress" maxlength="160" #LunchReceiveAddress="ngModel"></textarea>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-12 row">
+          <h3 class="col-sm-12" style="margin: 15px; text-align: center; border-bottom: 1px solid #ccc">Responsible
+            Person
+          </h3>
+          <div class="col-sm-6">
+            <mat-form-field>
+              <input matInput placeholder="Select Sales Executive" type="text" name="SalesExecutiveName"
+                [(ngModel)]="CustomerOb.SalesExecutiveName" #SalesExecutiveName="ngModel">
+              <button mat-icon-button matSuffix (click)="openEmployeePopup()">
+                <mat-icon>{{ 'add_box'}}</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field>
+              <input matInput placeholder="Select Delivery Man" type="text" name="DeliveryManName"
+                [(ngModel)]="CustomerOb.DeliveryManName" #DeliveryManName="ngModel">
+              <button mat-icon-button matSuffix (click)="openEmployeeDeliveryPopup()">
+                <mat-icon>{{ 'add_box'}}</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="activeModal.close('Cross click')">Close</button>
+  <button type="submit" class="btn btn-light" (click)="SaveOrUpdate()">{{popupModel.Id == "0"?"Save":"Update"}}</button>
+</div>

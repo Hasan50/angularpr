@@ -1,0 +1,143 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row"
+      style="margin-top: 50px;">
+      <div class="col-md-6"
+        style="padding-top: 11px;">
+        <p style="font-weight: bold;color: #9FABA4;">LIVE PROJECT</p>
+      </div>
+    </div>
+    <div class="row">
+      <mat-tab-group dynamicHeight
+        class="dWidth"
+        mat-align-tabs="center">
+        <mat-tab label="Projects">
+          <div class="example-small-box mat-elevation-z4">
+            <div class="row dWidth">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead class=" text-primary">
+                          <th>Code</th>
+                          <th>Client Name</th>
+                          <th>Title</th>
+                          <th>Description</th>
+                          <th>Location</th>
+
+                          <th>Status</th>
+                          <th>Documents</th>
+                          <th>Contractors</th>
+                          <th>Actions</th>
+                          <th>Rating</th>
+                          <!--  <th>FeedBackId</th>
+                              <th>TiltAngle</th>
+                              <th>GroundClearance</th>
+                              <th>PanelConfig</th> -->
+                          <!-- <th>Instructions</th> -->
+                          <!-- <th>Actions</th> -->
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let a of dataList">
+                            <td>{{a.ProjectCode}}</td>
+                            <td>{{a.ClientName}}</td>
+                            <td>{{a.ProjectTitle}}</td>
+                            <td>{{a.Description}}</td>
+                            <td>{{a.Location}}</td>
+
+                            <td>
+                              <span class="pointer fontBold"
+                                (click)="openStatusModal(a.Id)">
+                                Status List
+                              </span>
+                              <!-- <span *ngIf="a.StatusName=='Confirmed'"
+                                class="badge badge-success">{{a.StatusName}}</span>
+                              <span *ngIf="a.StatusName=='Pending'"
+                                class="badge badge-secondary">{{a.StatusName}}</span>
+                              <span *ngIf="a.StatusName=='Cancel'"
+                                class="badge badge-danger">{{a.StatusName}}</span>
+                              <span *ngIf="a.StatusName=='Complete'"
+                                class="badge badge-danger">{{a.StatusName}}</span> -->
+                            </td>
+
+                            <td>
+                              <span class="pointer fontBold"
+                                (click)="openDocumentsModal(a.Id)">
+                                Document List
+                              </span>
+                            </td>
+                            <td> <span class="pointer fontBold"
+                                (click)="openContractorList(a.Id)">
+                                Contractor List</span>
+                            </td>
+                            <td>
+                              <i class="material-icons pointer"
+                                ngbTooltip="Change Status"
+                                (click)="openConfirmationDialog(a.Id)">tune</i>
+                            </td>
+                            <td ngbTooltip="{{a.ProjectRating}} out of 5">
+                              <ng-template #t
+                                let-fill="fill">
+                                <span class="star"
+                                  [class.full]="fill === 100">
+                                  <span class="half"
+                                    [style.width.%]="fill">&#9733;</span>&#9733;
+                                </span>
+                              </ng-template>
+                              <ngb-rating [(rate)]="rating[a.Id]"
+                                [starTemplate]="t"
+                                [readonly]="true"
+                                max="5"></ngb-rating>
+                            </td>
+
+                            <!-- <td>
+                              <i class="material-icons pointer"
+                                (click)="openClientProjectAddOrEditPopup(a.Id)">edit</i>
+                            </td> -->
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="d-block text-center card-footer">
+                      <ngb-pagination *ngIf="totalItems > 10"
+                        [pageSize]="itemsPerPage"
+                        [collectionSize]="totalItems"
+                        [(page)]="page"
+                        [maxSize]="7"
+                        [rotate]="true"
+                        [boundaryLinks]="true"
+                        (pageChange)="loadPage($event)"></ngb-pagination>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </mat-tab>
+        <mat-tab label="Project Stage Tree">
+          <div class="example-large-box mat-elevation-z4">
+            <app-project-with-stage-tree style="width: 100%"></app-project-with-stage-tree>
+          </div>
+        </mat-tab>
+        <!-- <mat-tab label="Project Contractors">
+          <div class="example-large-box mat-elevation-z4">
+            <div style="width: 100%">
+              <div class="col-md-6"
+                style="padding-top: 11px;">
+                <p style="font-weight: bold;color: #9FABA4;">PROJECT CONTRACTOR</p>
+              </div>
+              <app-project-contractor-body style="width: 100%"></app-project-contractor-body>
+            </div>
+          </div>
+        </mat-tab> -->
+
+      </mat-tab-group>
+    </div>
+    <div>
+
+    </div>
+
+  </div>
+</div>

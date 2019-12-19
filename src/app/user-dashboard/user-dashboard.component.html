@@ -1,0 +1,65 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row"
+      style="margin-top: 50px;">
+      <div class="col-md-6"
+        style="padding-top: 11px;">
+        <p style="font-weight: bold;color: #9FABA4;">Projects at a Glance</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <!-- <thead class=" text-primary">
+                  <th>User Name</th>
+                  <th>Live Projects</th>
+                  <th>Completed Projects</th>
+                  <th>Pending Projects</th>
+                  <th>Cancelled Projects</th>
+                </thead> -->
+
+                <tbody>
+
+                  <tr class="text-primary"
+                    *ngFor="let a of dataList">
+                    <td> Live Projects </td>
+                    <td> {{a.LiveProject}} </td>
+                  </tr>
+                  <tr class="text-primary"
+                    *ngFor="let a of dataList">
+                    <td> Completed Projects </td>
+                    <td>{{a.CompletedProject}} </td>
+                  </tr>
+                  <tr class="text-primary"
+                    *ngFor="let a of dataList">
+                    <td> Pending Projects </td>
+                    <td> {{a.CompletedProject}} </td>
+                  </tr>
+                  <tr class="text-primary"
+                    *ngFor="let a of dataList">
+                    <td> Cancelled Projects </td>
+                    <td>{{a.CompletedProject}} </td>
+                  </tr>
+                </tbody>
+
+                <!-- <tbody>
+                  <tr *ngFor="let a of dataList">
+                    <td>{{a.UserName}}</td>
+                    <td>{{a.LiveProject}}</td>
+                    <td>{{a.CompletedProject}}</td>
+                    <td>{{a.CompletedProject}}</td>
+                    <td>{{a.CompletedProject}}</td>
+                  </tr>
+                </tbody> -->
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

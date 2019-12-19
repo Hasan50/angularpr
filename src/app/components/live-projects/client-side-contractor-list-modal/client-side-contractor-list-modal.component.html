@@ -1,0 +1,99 @@
+<div class="modal-header">
+  <!-- <h4 class="modal-title"
+    style="font-size: 17px;">Contractor List</h4> -->
+  <button type="button"
+    class="close"
+    aria-label="Close"
+    (click)="popUpClose()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <mat-tab-group dynamicHeight
+      style="width: 100%"
+      mat-align-tabs="center">
+      <mat-tab label="Contractor List">
+        <div class="col-md-12"
+          #target>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+
+                  <th>Full Name</th>
+                  <th>Email</th>
+                  <th>Contact No</th>
+                  <th>Feedback</th>
+                  <th>Actions</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let a of contractorList">
+                    <td>{{a.UserName}}</td>
+                    <td>{{a.Email}}</td>
+                    <td>{{a.ContactNo}}</td>
+                    <td>
+                      <ngb-rating [(rate)]="rating[a.Id]"
+                        max="5"
+                        (click)="getFeedBack(a)">
+                        <ng-template let-fill="fill"
+                          let-index="index">
+                          <span class="star"
+                            [class.filled]="fill === 100"
+                            [class.bad]="index < 2">&#9733;</span>
+                        </ng-template>
+                      </ngb-rating>
+                    </td>
+                    <td> <i class="material-icons pointer"
+                        ngbTooltip="Delete"
+                        (click)="openConfirmationDialog(a.Id)">delete</i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Add Contractor">
+        <div class="col-md-12">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>CheckBox</th>
+                  <th>Full Name</th>
+                  <th>Email</th>
+                  <th>Contact No</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let a of dataList">
+                    <td>
+                      <mat-checkbox class="matBox"
+                        [checked]="a.IsSelect"
+                        (change)="onChange(a)"></mat-checkbox>
+                    </td>
+                    <td>{{a.UserName}}</td>
+                    <td>{{a.Email}}</td>
+                    <td>{{a.ContactNo}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="row"
+              style="align-items: flex-start">
+              <button type="submit"
+                class="btn btn-success"
+                (click)="SaveOrUpdate()"
+                (click)="scroll(target)">Save</button>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="submit"
+    class="btn btn-danger"
+    (click)="popUpClose()">Close</button>
+</div>

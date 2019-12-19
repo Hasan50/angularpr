@@ -1,0 +1,147 @@
+<div class="modal-header">
+  <h4 class="modal-title"
+    style="font-size: 17px;">EDIT STAGE</h4>
+  <button type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.close('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12">
+      <form #form="ngForm"
+        novalidate>
+        <div class="form-group row">
+          <label for="ParentId"
+            class="col-md-3 col-form-label">Parent Id</label>
+          <div class="col-md-9">
+            <div *ngIf="parentTypes != null">
+              <select name="ParentId"
+                [(ngModel)]="StageOb.ParentId"
+                id="ParentId"
+                class="form-control"
+                required
+                #ParentId="ngModel"
+                id="department"
+                required
+                #department="ngModel"
+                name="department"
+                [(ngModel)]="employee.department"
+                class="form-control">
+                <option [ngValue]="0"
+                  selected>Select Parent Type</option>
+                <option *ngFor="let x of parentTypes"
+                  value="{{x.Id}}">{{x.Name}}</option>
+              </select>
+            </div>
+            <!-- <input type="text"
+                  name="ParentId"
+                  (keypress)="numberOnly($event)"
+                  [(ngModel)]="StageOb.ParentId"
+                  id="ParentId"
+                  class="form-control form-control-md"
+                  required
+                  #ParentId="ngModel" /> -->
+            <!-- <div class="input-group">
+                  <div *ngIf="ParentId.errors &&(ParentId.touched || ParentId.dirty)">
+                    <p *ngIf="ParentId.errors.required"
+                      style="color:red"> Monthly Max Credit is required. </p>
+                  </div>
+                </div> -->
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="Name"
+            class="col-md-3 col-form-label">Stage Name</label>
+          <div class="col-md-9">
+            <input type="text"
+              name="Name"
+              [(ngModel)]="StageOb.Name"
+              id="Name"
+              class="form-control form-control-md"
+              maxlength="60"
+              #Name="ngModel"
+              required>
+            <div class="input-group">
+              <div *ngIf="Name.errors && (submitted||Name.dirty || Name.touched)">
+                <p *ngIf="Name.errors.required"
+                  style="color:red">* Stage Name is required</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="LevelNo"
+            class="col-md-3 col-form-label">Column No</label>
+          <div class="col-md-9">
+            <select name="LevelNo"
+              [(ngModel)]="StageOb.LevelNo"
+              id="LevelNo"
+              class="form-control form-control-md select-css"
+              required>
+              <option [ngValue]="0"
+                selected>Select Column Number</option>
+              <option class="optionClass"
+                *ngFor="let a of columnNumber"
+                [value]="a.value">
+                {{a.viewValue}}
+              </option>
+            </select>
+            <div class="input-group">
+              <div *ngIf="StageOb.LevelNo==0 && submitted">
+                <p *ngIf="StageOb.LevelNo==0"
+                  style="color:red">* Column Number is required</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="SerialNo"
+            class="col-md-3 col-form-label">Serial No</label>
+          <div class="col-md-9">
+
+            <select name="SerialNo"
+              [(ngModel)]="StageOb.SerialNo"
+              id="SerialNo"
+              class="form-control form-control-md select-css"
+              required>
+              <option [ngValue]="0"
+                selected>Select Serial Number</option>
+              <option *ngFor="let a of serialNumber"
+                [value]="a.value">
+                {{a.viewValue}}
+              </option>
+            </select>
+            <div class="input-group">
+              <div *ngIf="StageOb.SerialNo==0 && submitted">
+                <p *ngIf="StageOb.SerialNo==0"
+                  style="color:red">* Serial Number is required</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row"
+          style="padding-top: 20px">
+          <label for="IsActive"
+            style="margin-top: -10px"
+            class="col-md-3 col-form-label">Is Active</label>
+          <div class="col-md-9">
+            <mat-checkbox [(ngModel)]="StageOb.IsActive"
+              [checked]="StageOb.IsActive"
+              [ngModelOptions]="{standalone: true}"></mat-checkbox>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="submit"
+    class="btn btn-success"
+    (click)="SaveOrUpdate()">Save</button>
+</div>

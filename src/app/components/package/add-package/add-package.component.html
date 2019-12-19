@@ -1,0 +1,36 @@
+<div class="modal-header">
+  <h4 class="modal-title" style="font-size: 17px;">ADD PACKAGE</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12">
+      <form #form="ngForm" novalidate autocomplete="off" class="row">
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Name" name="Name" [(ngModel)]="PackageOb.Name" maxlength="60" #Name="ngModel"
+              required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Price" name="Price" [(ngModel)]="PackageOb.Price" maxlength="60" #Price="ngModel"
+              required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Affective date" name="AffectiveDate" [bsValue]="PackageOb.AffectiveDate"
+            [bsConfig]="{ isAnimated: true, adaptivePosition: true, dateInputFormat: 'DD/MM/YYYY' }" bsDatepicker>
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="activeModal.close('Cross click')">Close</button>
+  <button type="submit" class="btn btn-light" (click)="SaveOrUpdate()">{{popupModel.Id == "0"?"Save":"Update"}}</button>
+</div>

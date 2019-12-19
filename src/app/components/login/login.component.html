@@ -1,0 +1,72 @@
+<div class="col-md-12 login-form">
+  <div class="row">
+    <div class="col-md-7 login-left-section">
+      <div class="logo-container">
+        <img src="../../../assets/img/logo3.png">
+      </div>
+      <div class="Welcome-body">
+        <h2>WELCOME TO</h2>
+        <h2>AGAMI ENGINEERING</h2>
+        <h2>SOLAR ROOFTOP INTERFACE</h2>
+
+      </div>
+    </div>
+    <div class="col-md-5 login-right-section">
+      <div class="login-right-form">
+        <div class="SIGN-IN-Text">
+          SIGN IN
+          <div class="Intersection-1"></div>
+        </div>
+        <form role="form"
+          class="form-style"
+          (ngSubmit)="f.form.valid && login()"
+          #f="ngForm"
+          novalidate>
+          <mat-form-field appearance="legacy"
+            class="login-label-icon"
+            [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <span matPrefix><img class="login-form-icon"
+                src="assets/Images/user_icon_ashh.svg" /></span>
+            <input matInput
+              placeholder="Enter your username"
+              name="username"
+              [(ngModel)]="model.username"
+              #username="ngModel"
+              required>
+          </mat-form-field>
+          <mat-form-field [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <span matPrefix><img class="login-form-icon"
+                src="assets/Images/password_icon_ashh.svg" /></span>
+            <input matInput
+              name="password"
+              placeholder="Enter your password"
+              [type]="hide ? 'password' : 'text'"
+              [(ngModel)]="model.password"
+              #password="ngModel"
+              required>
+            <a mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </a>
+          </mat-form-field>
+          
+          <div class="text-center">
+            <button [disabled]="loading"
+              class="btn btn-primary my-4 ha-button">LOGIN</button>
+            <img *ngIf="loading"
+              src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+          </div>
+        </form>
+      </div>
+      <div class="login-footer-bottom">
+        &copy; 2019 <a href="https://www.trillionbits.com/"
+          class="font-weight-bold ml-1"
+          target="_blank">TrillionBits
+          Ltd.</a>
+      </div>
+    </div>
+  </div>
+</div>

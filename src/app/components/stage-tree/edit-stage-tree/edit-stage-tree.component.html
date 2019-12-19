@@ -1,0 +1,57 @@
+<div class="modal-header">
+  <h4 class="modal-title"
+    style="font-size: 17px;">ADD STAGE TREE</h4>
+  <button type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.close('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12">
+      <form #form="ngForm"
+        novalidate>      
+        <div class="form-group row">
+          <label for="Name"
+            class="col-md-3 col-form-label">Stage Tree Name</label>
+          <div class="col-md-9">
+            <input type="text"
+              name="Name"
+              [(ngModel)]="StageOb.Name"
+              id="Name"
+              class="form-control form-control-md"
+              maxlength="60"
+              #Name="ngModel"
+              required>
+            <div class="input-group">
+              <div *ngIf="Name.errors && (submitted||Name.dirty || Name.touched)">
+                <p *ngIf="Name.errors.required"
+                  style="color:red">* Stage Tree Name is required</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group row"
+          style="padding-top: 20px">
+          <label for="IsActive"
+            style="margin-top: -10px"
+            class="col-md-3 col-form-label">Is Active</label>
+          <div class="col-md-9">
+            <mat-checkbox [(ngModel)]="StageOb.IsActive"
+              [checked]="StageOb.IsActive"
+              [ngModelOptions]="{standalone: true}"></mat-checkbox>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="submit"
+    class="btn btn-success"
+    (click)="SaveOrUpdate()">Save</button>
+</div>

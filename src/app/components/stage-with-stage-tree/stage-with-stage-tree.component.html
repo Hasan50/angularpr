@@ -1,0 +1,83 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row"
+      style="margin-top: 50px;">
+      <div class="col-md-6"
+        style="padding-top: 11px;">
+        <p style="font-weight: bold;color: #9FABA4;">STAGE TREE RELATION MANAGEMENT</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col-md-3">
+                <mat-form-field *ngIf="StageTreeList != null">
+                  <mat-label>Select A Stage Tree</mat-label>
+                  <mat-select [(ngModel)]="stageTreeId"
+                    (ngModelChange)="onChange()">
+                    <mat-option *ngFor="let x of StageTreeList"
+                      value="{{x.Value}}">{{x.Text}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-md-3">
+                <!-- <mat-form-field *ngIf="ClientList != null">
+                    <mat-label>Select A Client</mat-label>
+                    <mat-select [(ngModel)]="clientId"
+                      (ngModelChange)="onClientChange(clientId)">
+                      <mat-option *ngFor="let x of ClientList"
+                        value="{{x.Value}}">{{x.Text}}</mat-option>
+                    </mat-select>
+                  </mat-form-field> -->
+              </div>
+              <div class="col-md-6">
+                <button _ngcontent-xej-c8=""
+                  [disabled]="stageTreeId==null"
+                  class="btn btn-success btn-round pull-right"
+                  (click)="openProjectStageAddOrEditPopup('0')"
+                  type="submit"><span class="mat-button-wrapper">ADD STAGE</span>
+                </button>
+              </div>
+
+            </div>
+
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>Name</th>
+                  <th>CreatedAt</th>
+                  <th>IsActive</th>
+                  <th>LevelNo</th>
+                  <th>Actions</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let a of dataList">
+                    <td>{{a.Name}}</td>
+                    <td>{{a.CreatedAt}}</td>
+                    <td>
+                      <span *ngIf="a.IsActive"
+                        class="badge badge-success">{{a.IsActive?'Yes':'No'}}</span>
+                      <span *ngIf="!a.IsActive"
+                        class="badge badge-warning">{{a.IsActive?'Yes':'No'}}</span>
+                    </td>
+                    <td>{{a.LevelNo}}</td>
+                    <td>
+                      <i class="material-icons pointer"
+                        ngbTooltip="Delete"
+                        tooltipClass="tooltipClass"
+                        (click)="openConfirmationDialog(a)">delete</i>
+                    </td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,119 @@
+<div class="modal-header">
+  <h4 class="modal-title" style="font-size: 17px;">ADD EMPLOYEE</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12">
+      <form #form="ngForm" novalidate class="row">
+          <div class="col-sm-12 row">
+                  <label for="EmployeeCode"
+                    class="col-md-3 col-form-label">Employee Code</label>
+                  <div class="col-md-9">
+                    <label name="EmployeeCode"
+                      class="form-control form-control-md"
+                      id="EmployeeCode">{{EmployeeOb.EmployeeCode}}
+                    </label>
+                  </div>
+            </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="User name to login" name="LoginID" [(ngModel)]="RegistrationOb.LoginID"
+              maxlength="150" #LoginID="ngModel" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Full Name" name="FullName" [(ngModel)]="RegistrationOb.FullName" maxlength="150"
+              #Name="ngModel" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput type="password" name="Password" placeholder="Password" [(ngModel)]="RegistrationOb.Password"
+              maxlength="150" #Name="ngModel" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput type="password" name="ConfirmPassword" placeholder="Confirm Password"
+              [(ngModel)]="RegistrationOb.ConfirmPassword" maxlength="150" #Name="ngModel" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Cell No" name="PhoneNumber" [(ngModel)]="RegistrationOb.PhoneNumber" maxlength="60"
+              #PhoneNumber="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Email" name="Email" [(ngModel)]="RegistrationOb.Email" maxlength="150"
+              #Email="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input type="text" matInput name="DathOfBirth" [(ngModel)]="RegistrationOb.DathOfBirth"  #DathOfBirth="ngModel" placeholder="Dath of birth"
+              class="form-control"
+              [bsConfig]="{ isAnimated: true, adaptivePosition: true, dateInputFormat: 'DD/MM/YYYY' }" bsDatepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="NID No." name="NationalId" [(ngModel)]="RegistrationOb.NationalId" maxlength="150"
+              #NationalId="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-12">
+          <mat-form-field>
+            <textarea matInput placeholder="Address" name="Address" [(ngModel)]="RegistrationOb.Address"
+              maxlength="250" #Address="ngModel"></textarea>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Department" name="Department" [(ngModel)]="RegistrationOb.Department"
+              maxlength="50" #Department="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Section" name="Section" [(ngModel)]="RegistrationOb.Section" maxlength="50"
+              #Section="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Designation" name="Designation" [(ngModel)]="RegistrationOb.Designation"
+              maxlength="60" #Designation="ngModel">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field>
+            <mat-select placeholder="Blood Group" name="BloodGroup" [(ngModel)]="RegistrationOb.BloodGroup"
+              #BloodGroup="ngModel">
+              <mat-option *ngFor="let bloodGroup of bloodGroupList" [value]="bloodGroup.Id">{{ bloodGroup.Name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+            <label class="col-sm-3">Gender</label>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="RegistrationOb.Gender" #Gender="ngModel" name='Gender'
+              class="col-sm-9">
+              <mat-radio-button value="male" style="margin-right: 10px">Male</mat-radio-button>
+              <mat-radio-button value="female">Female</mat-radio-button>
+            </mat-radio-group>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="activeModal.close('Cross click')">Close</button>
+  <button type="submit" class="btn btn-light" (click)="SaveOrUpdate()">{{popupModel.Id == "0"?"Save":"Update"}}</button>
+</div>

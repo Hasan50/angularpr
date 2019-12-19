@@ -1,0 +1,48 @@
+export class CustomerRegistrationModel
+{
+    Id: any;
+    LoginID:string;
+    FullName: string;
+    Email: string;
+    UserTypeId: Number;
+    UserCredentialDetailId:string;
+    PhoneNumber:any;
+    Gender:string;
+    Age:Number;
+    BloodGroup:string;
+    DathOfBirth:any;
+    Weight:any;
+    Height:any;
+    Diabetes:any;
+    Allergy:any;
+    AllergyDetail:string;
+    BP:any;
+    NationalId:any;
+    CompanyName:any;
+    Address:string;
+    Department:string;
+    Section:string;
+    Designation:string;
+    ReferencePersonName:string;
+    ReferencePersonCellNumber:string;
+    ImagePath:string;
+    Password: any;
+    ConfirmPassword: any;
+    IsActive: boolean;
+    LunchStartDate:any;
+    ReplacementMenu:any;
+    SpecialMenu:any;
+    LunchReceiveAddress:any;
+    WeekDayOff:any;
+    SalesExecutiveId:any;
+    SalesExecutiveName:string;
+    SalesExecutiveEmployeeCode:string;
+    DeliveryManId:any;
+    DeliveryManName:any;
+    DeliveryManEmployeeCode:any;
+    RegistrationAmount:any;
+    PaidAmount:any;
+    DueAmount:any;
+    CreatedById:string;
+    UpdatedById:string;
+}

@@ -1,0 +1,53 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row"
+      style="margin-top: 50px;">
+      <div class="col-md-6"
+        style="padding-top: 11px;">
+        <p style="font-weight: bold;color: #9FABA4;">PROJECT DOCUMENT</p>
+      </div>      
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+
+          <div class="card-body">
+            <div class="table-responsive">
+
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>Name</th>
+                  <th>Login ID</th>
+                  <th>Phone Number</th>
+                  <th>Room No</th>
+                  <th>Designation</th>
+                  <th>Department</th>
+                  <th>Status</th>
+                  <th></th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let a of dataList">
+                    <td>{{a.UserName}}</td>
+                    <td>{{a.LoginID}}</td>
+                    <td>{{a.PhoneNumber}}</td>
+                    <td>{{a.RoomNo}}</td>
+                    <td>{{a.DesignationName}}</td>
+                    <td>{{a.DepartmentName}}</td>
+                    <td>
+                      <span *ngIf="a.IsActive"
+                        class="badge badge-success">{{a.Status}}</span>
+                      <span *ngIf="!a.IsActive"
+                        class="badge badge-warning">{{a.Status}}</span>
+                    </td>
+                  
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row" style="margin-top: 50px;">
+      <div class="col-md-6" style="padding-top: 11px;">
+        <p style="font-weight: bold;color: #9FABA4;"> Master Setting</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                <form #form="ngForm" novalidate class="row" autocomplete="off">
+                  <div class="col-sm-6">
+                    <mat-form-field>
+                      <input matInput placeholder="Week day off can be select" name="WeekOffCanBeSelectForDays"
+                        [(ngModel)]="masterSettingOb.WeekOffCanBeSelectForDays" (keypress)="numberOnly($event)"
+                        #WeekOffCanBeSelectForDays="ngModel" required>
+                    </mat-form-field>
+                  </div>
+                  <div div class="col-sm-6">
+
+                  </div>
+                  <div class="col-sm-6">
+                    <mat-form-field>
+                      <input matInput placeholder="Maximum Time For Meal Off Or On" name="DailyPackageUpdateLimitTime"
+                        [(ngModel)]="masterSettingOb.DailyPackageUpdateLimitTime"
+                        #DailyPackageUpdateLimitTime="ngModel" required>
+                    </mat-form-field>
+                  </div>      
+                </form>
+              </div>
+            </div>
+            <div>
+              <button type="button" class="btn btn-default" (click)="activeModal.close('Cross click')">Close</button>
+              <button type="submit" class="btn btn-light"
+                (click)="Save()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

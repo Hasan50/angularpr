@@ -1,0 +1,44 @@
+<div class="modal-header">
+  <h4 class="modal-title" style="font-size: 17px;">TAG RAW ITEM</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+
+            <table class="table">
+              <thead class=" text-primary">
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Actions</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let a of rawItemList">
+<td> <mat-checkbox  (change)="onCheckboxChange(a.Id,$event)">{{a.Name}}</mat-checkbox></td>
+                  <td>{{a.Quantity}}</td>
+                  <td>{{a.Price}}</td>
+                  <td>
+                    <i class="material-icons pointer"
+                      ngbTooltip="Edit"
+                      tooltipClass="tooltipClass"
+                      (click)="openClientEditPopup(a.Id)">edit</i>
+                    <i class="material-icons pointer"
+                      ngbTooltip="Delete"
+                      tooltipClass="tooltipClass"
+                      (click)="openConfirmationDialog(a.Id)">delete</i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="activeModal.close('Cross click')">Close</button>
+  <button type="submit" class="btn btn-light" (click)="SaveOrUpdate()">{{popupModel.Id == "0"?"Save":"Update"}}</button>
+</div>

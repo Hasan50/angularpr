@@ -1,0 +1,203 @@
+<div class="modal-header">
+  <h4 class="modal-title"
+    style="font-size: 17px;">ADD PROJECT</h4>
+  <button type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.close('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12">
+      <form #form="ngForm"
+        novalidate>
+        <div class="form-group row">
+          <label for="ProjectCode"
+            class="col-md-3 col-form-label">Project Code</label>
+          <div class="col-md-9">
+            <label name="ProjectCode"
+              class="form-control form-control-md"
+              id="ProjectCode">{{ProjectOb.ProjectCode}}
+            </label>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="ProjectTitle"
+            class="col-md-3 col-form-label">ProjectTitle</label>
+          <div class="col-md-9">
+            <input type="text"
+              name="ProjectTitle"
+              [(ngModel)]="ProjectOb.ProjectTitle"
+              id="ProjectTitle"
+              class="form-control form-control-md"
+              maxlength="60"
+              #ProjectTitle="ngModel"
+              required>
+            <div class="input-group">
+              <div *ngIf="ProjectTitle.errors && (ProjectTitle.submitted||ProjectTitle.dirty || ProjectTitle.touched)">
+                <p *ngIf="ProjectTitle.errors.required"
+                  style="color:red">* Project Title is required</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="Description"
+            class="col-md-3 col-form-label">Description</label>
+          <div class="col-md-9">
+            <input rows="4"
+              cols="50"
+              name="Description"
+              [(ngModel)]="ProjectOb.Description"
+              id="Description"
+              class="form-control form-control-md"
+              maxlength="200"
+              minlength="6"
+              required
+              #Description="ngModel" />
+            <div class="input-group">
+              <div *ngIf="Description.invalid && (Description.submitted || Description.touched)">
+                <p *ngIf="Description.errors.required"
+                  style="color:red"> Description is required. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="Location"
+            class="col-md-3 col-form-label">Location</label>
+          <div class="col-md-9">
+            <input type="text"
+              name="Location"
+              [(ngModel)]="ProjectOb.Location"
+              id="Location"
+              class="form-control form-control-md"
+              required
+              #Location="ngModel" />
+            <div class="input-group">
+              <div *ngIf="Location.errors &&(Location.submitted||Location.touched || Location.dirty)">
+                <p *ngIf="Location.errors.required"
+                  style="color:red"> Location is required. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="form-group row">
+          <label for="StatusId"
+            class="col-md-3 col-form-label">Status Id</label>
+          <div class="col-md-9">
+            <input type="text"
+              name="StatusId"
+              (keypress)="numberOnly($event)"
+              [(ngModel)]="ProjectOb.StatusId"
+              id="StatusId"
+              class="form-control form-control-md"
+              required
+              #StatusId="ngModel" />
+            <div class="input-group">
+              <div *ngIf="StatusId.errors &&(submitted||StatusId.touched || StatusId.dirty)">
+                <p *ngIf="StatusId.errors.required"
+                  style="color:red"> Status Id is required. </p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!--  <div class="form-group row">
+          <label for="FeedBackId"
+            class="col-md-3 col-form-label">FeedBack Id</label>
+          <div class="col-md-9">
+            <input type="text"
+              name="FeedBackId"
+              (keypress)="numberOnly($event)"
+              [(ngModel)]="ProjectOb.FeedBackId"
+              id="FeedBackId"
+              class="form-control form-control-md"
+              required
+              #FeedBackId="ngModel" />
+          
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="TiltAngle"
+            class="col-md-3 col-form-label"> Tilt Angle</label>
+          <div class="col-md-9">
+            <input type="text"
+              name="TiltAngle"
+              (keypress)="numberOnly($event)"
+              [(ngModel)]="ProjectOb.TiltAngle"
+              id="TiltAngle"
+              class="form-control form-control-md"
+              required
+              #TiltAngle="ngModel" />
+          
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="GroundClearance"
+            class="col-md-3 col-form-label">Ground Clearance</label>
+          <div class="col-md-9">
+            <input type="text"
+              name="GroundClearance"
+              [(ngModel)]="ProjectOb.GroundClearance"
+              id="GroundClearance"
+              class="form-control form-control-md"
+              required
+              #GroundClearance="ngModel" />
+            <div class="input-group">
+              <div *ngIf="GroundClearance.errors &&(GroundClearance.touched || GroundClearance.dirty)">
+                <p *ngIf="Location.errors.required"
+                  style="color:red"> Ground Clearance Is Required. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="PanelConfig"
+            class="col-md-3 col-form-label">Panel Config</label>
+          <div class="col-md-9">
+            <input type="text"
+              name="PanelConfig"
+              [(ngModel)]="ProjectOb.PanelConfig"
+              id="PanelConfig"
+              class="form-control form-control-md"
+              required
+              #PanelConfig="ngModel" />
+            <div class="input-group">
+              <div *ngIf="PanelConfig.errors &&(PanelConfig.touched || PanelConfig.dirty)">
+                <p *ngIf="Location.errors.required"
+                  style="color:red"> Panel Config Is Required. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="Instructions"
+            class="col-md-3 col-form-label">Instructions</label>
+          <div class="col-md-9">
+            <input type="text"
+              name="Instructions"
+              [(ngModel)]="ProjectOb.Instructions"
+              id="Instructions"
+              class="form-control form-control-md"
+              required
+              #Instructions="ngModel" />
+            <div class="input-group">
+              <div *ngIf="Instructions.errors &&(Instructions.touched || Instructions.dirty)">
+                <p *ngIf="Location.errors.required"
+                  style="color:red"> Instructions Is Required. </p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="submit"
+    class="btn btn-success"
+    (click)="SaveOrUpdate()">{{popupModel.Id == "0"?"Save":"Update"}}</button>
+</div>

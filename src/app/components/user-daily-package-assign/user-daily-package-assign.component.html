@@ -1,0 +1,60 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row" style="margin-top: 50px;">
+            <div class="col-md-6" style="padding-top: 11px;">
+                <p style="font-weight: bold;color: #9FABA4;">Daily Package Assign</p>
+            </div>
+            <div class="col-md-6">
+              
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                      <div class="row">
+                            <div class="col-md-6">
+                                    <strong>User Name:</strong> <span style="margin-right: 10px">{{selectedUser.FullName}}</span><br>
+                                <strong>Phone Number:</strong> <span>{{selectedUser.PhoneNumber}}</span>
+                             </div>
+                             <div class="col-md-6">
+                                 <strong>Due :</strong><span  style="margin-right: 10px">{{userDue}} BDT</span><br>
+                                 <strong>Paid :</strong><span>0.00</span>
+                             </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="calendar">
+                            <div class="month">
+                                <div class="prev" (click)="moveDate('prev')">
+                                    <span>&#10094;</span>
+                                </div>
+                                <div>
+                                    <h2 id="month"></h2>
+                                    <p id="date_str"></p>
+                                </div>
+                                <div class="next" (click)="moveDate('next')">
+                                    <span>&#10095;</span>
+                                </div>
+                            </div>
+                            <div class="weekdays">
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                            </div>
+                            <div class="days">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

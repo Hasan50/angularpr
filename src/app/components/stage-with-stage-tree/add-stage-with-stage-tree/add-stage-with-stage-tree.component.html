@@ -1,0 +1,58 @@
+<div class="modal-header">
+  <h4 class="modal-title"
+    style="font-size: 17px;">ADD STAGE</h4>
+  <button type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.close('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- <div class="card"> -->
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+              <th>CheckBox</th>
+              <th>Stage Name</th>
+              <th>Level No</th>
+              <th>Serial No</th>
+              <th>Parent</th>
+
+            </thead>
+            <tbody>
+              <tr *ngFor="let a of dataList">
+                <td>
+                  <mat-checkbox class="matBox"
+                    [checked]="a.IsSelect"
+                    (change)="onChange(a)"></mat-checkbox>
+                </td>
+                <td>{{a.Name}}</td>
+                <td>{{a.LevelNo}}</td>
+                <td>{{a.SerialNo}}</td>
+                <td>{{a.ParentName}}</td>
+
+                <!-- <td>
+                            <span *ngIf="a.IsActive"
+                              class="badge badge-success">{{a.Status}}</span>
+                            <span *ngIf="!a.IsActive"
+                              class="badge badge-warning">{{a.Status}}</span>
+                          </td> -->
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="submit"
+    class="btn btn-success"
+    (click)="SaveOrUpdate()">Save</button>
+</div>

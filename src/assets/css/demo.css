@@ -1,0 +1,123 @@
+/*my-app .main-panel .main-content .card{
+    animation-duration: 750ms;
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-fill-mode: forwards;
+}*/
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+@import '../../../node_modules/@syncfusion/ej2-base/styles/material.css';
+@import '../../../node_modules/@syncfusion/ej2-buttons/styles/material.css';
+@import '../../../node_modules/@syncfusion/ej2-calendars/styles/material.css';
+@import '../../../node_modules/@syncfusion/ej2-dropdowns/styles/material.css';
+@import '../../../node_modules/@syncfusion/ej2-inputs/styles/material.css';
+@import '../../../node_modules/@syncfusion/ej2-lists/styles/material.css';
+@import '../../../node_modules/@syncfusion/ej2-popups/styles/material.css';
+@import '../../../node_modules/@syncfusion/ej2-navigations/styles/material.css';
+@import '../../../node_modules/@syncfusion/ej2-angular-schedule/styles/material.css';
+.tim-typo {
+  padding-left: 25%;
+  margin-bottom: 40px;
+  position: relative;
+  width: 100%;
+}
+.tim-typo .tim-note {
+  bottom: 5px;
+  color: #c0c1c2;
+  display: block;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  left: 0;
+  margin-left: 20px;
+  position: absolute;
+  width: 260px;
+}
+
+.card .card-title {
+  margin: 5px;
+  margin-left: 20px;
+  font-size: 16px;
+  margin-bottom: -7px;
+}
+.main-panel .main-content {
+  margin-top: 15px;
+  padding: 1px 15px;
+  min-height: calc(100vh - 123px);
+}
+
+.icon-delete {
+  color: indianred;
+}
+
+table {
+  width: 100%;
+}
+.table-list-header {
+  background: blue;
+  color: white;
+}
+.table-data-action {
+  width: 70px;
+}
+.data-table-row {
+  font-size: 14px;
+  border: 1px solid #ccc;
+}
+.data-table-row > td {
+  padding: 8px;
+}
+.table-data-action-col1 {
+  width: 30px;
+}
+.pointer {
+  cursor: pointer;
+}
+.popup-header {
+  background-color: #3a3439;
+  color: white;
+  font-size: 13px;
+  padding: 7px 0px 7px 32px !important;
+}
+
+.paginationDiv {
+  margin-top: 10px;
+  float: right;
+}
+mat-spinner {
+  zoom: 0.5;
+}
+
+.spinner-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.md-drppicker.double {
+  width: 627px !important;
+  margin-top: 4px;
+}
+.calendar {
+  margin: 15px;
+}
+/*==========
+hasan
+=====*/
+.wr-dashbord .table thead th, td {
+  font-size: 13px;
+}
+.wr-dashbord .navbar .navbar-nav .nav-item .nav-link .material-icons, .navbar .navbar-nav .nav-item .nav-link .fa {
+  font-size: 2rem !important;
+}
+.wr-dashbord .mat-raised-button {
+  font-size: 10px !important;
+}
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+  z-index: 99999 !important;
+}
+@media (min-width: 768px){
+  .dashboard-menu .navbar-collapse.collapse {
+      float: right !important;
+  }
+  }

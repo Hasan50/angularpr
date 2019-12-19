@@ -1,0 +1,79 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row"
+      style="margin-top: 50px;">
+      <div class="col-md-6"
+        style="padding-top: 11px;">
+        <p style="font-weight: bold;color: #9FABA4;">CANCELLED PROJECT LIST</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>Project Code</th>
+                  <th>Clinet Name</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Location</th>
+
+                  <th>Status</th>
+                  <th>Documents</th>
+                  <th>Cost Document</th>
+                  <!-- <th>Actions</th> -->
+                  <!--  <th>FeedBackId</th>
+                    <th>TiltAngle</th>
+                    <th>GroundClearance</th>
+                    <th>PanelConfig</th> -->
+                  <!-- <th>Instructions</th> -->
+                  <th></th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let a of dataList">
+                    <td>{{a.ProjectCode}}</td>
+                    <td>{{a.ClientName}}</td>
+                    <td>{{a.ProjectTitle}}</td>
+                    <td>{{a.Description}}</td>
+                    <td>{{a.Location}}</td>
+
+                    <td>
+                      <!-- {{a.StatusName}} -->
+                      <span *ngIf="a.StatusName=='Confirmed'"
+                        class="badge badge-success">{{a.StatusName}}</span>
+                      <span *ngIf="a.StatusName=='Pending'"
+                        class="badge badge-secondary">{{a.StatusName}}</span>
+                      <span *ngIf="a.StatusName=='Cancelled'"
+                        class="badge badge-danger">{{a.StatusName}}</span>
+                      <span *ngIf="a.StatusName=='Complete'"
+                        class="badge badge-danger">{{a.StatusName}}</span>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <!-- <td>
+                      <i class="material-icons pointer"
+                        ngbTooltip="Change Status"
+                        (click)="openConfirmationDialog(a.Id)">tune</i>
+                    </td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="d-block text-center card-footer">
+              <ngb-pagination *ngIf="totalItems > 10"
+                [pageSize]="itemsPerPage"
+                [collectionSize]="totalItems"
+                [(page)]="page"
+                [maxSize]="7"
+                [rotate]="true"
+                [boundaryLinks]="true"
+                (pageChange)="loadPage($event)"></ngb-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

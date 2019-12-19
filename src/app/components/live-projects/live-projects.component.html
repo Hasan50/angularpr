@@ -1,0 +1,157 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row"
+      style="margin-top: 50px;">
+      <div class="col-md-6"
+        style="padding-top: 11px;">
+        <p style="font-weight: bold;color: #9FABA4;">LIVE PROJECT LIST</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>Code</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                  <th>Documents</th>
+                  <th>Contractors</th>
+                  <th>Rating</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let a of dataList">
+                    <td>{{a.ProjectCode}}</td>
+                    <td>{{a.ProjectTitle}}</td>
+                    <td>{{a.Description}}</td>
+                    <td>{{a.Location}}</td>
+                    <td>
+                      <span class="pointer fontBold"
+                        (click)="openStatusModal(a.Id)">
+                        Status List
+                      </span>
+                      <!-- <span *ngIf="a.StatusName=='Confirmed'"
+                        class="badge badge-success">{{a.StatusName}}</span>
+                      <span *ngIf="a.StatusName=='Pending'"
+                        class="badge badge-secondary">{{a.StatusName}}</span>
+                      <span *ngIf="a.StatusName=='Cancel'"
+                        class="badge badge-danger">{{a.StatusName}}</span>
+                      <span *ngIf="a.StatusName=='Complete'"
+                        class="badge badge-danger">{{a.StatusName}}</span> -->
+                    </td>
+                    <td>
+                      <span class="pointer fontBold"
+                        (click)="openDocumentsModal(a.Id)">
+
+                        Document List
+                      </span>
+                    </td>
+                    <td> <span class="pointer fontBold"
+                        (click)="openContractorList(a.Id)">
+                        Contractor List</span>
+                    </td>
+                    <td ngbTooltip="{{a.ProjectRating}} out of 5">
+                      <ng-template #t
+                        let-fill="fill">
+                        <span class="star"
+                          [class.full]="fill === 100">
+                          <span class="half"
+                            [style.width.%]="fill">&#9733;</span>&#9733;
+                        </span>
+                      </ng-template>
+                      <ngb-rating [(rate)]="rating[a.Id]"
+                        [starTemplate]="t"
+                        [readonly]="true"
+                        max="5"></ngb-rating>
+                    </td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="d-block text-center card-footer">
+              <ngb-pagination *ngIf="totalItems > 10"
+                [pageSize]="itemsPerPage"
+                [collectionSize]="totalItems"
+                [(page)]="page"
+                [maxSize]="7"
+                [rotate]="true"
+                [boundaryLinks]="true"
+                (pageChange)="loadPage($event)"></ngb-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="main-content">
+  <div class="container-fluid">
+    <div class="row"
+      style="margin-top: 50px;">
+      <div class="col-md-6"
+        style="padding-top: 11px;">
+        <p style="font-weight: bold;color: #9FABA4;">LIVE PROJECT</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>Code</th>
+                  <th>Title</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                  <th>Documents</th>
+                  <th>Contractors</th>
+                  <th>Rating</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>E1002</td>
+                    <td>Project 2</td>
+                    <td>norway</td>
+                    <td> <a href="#">Status Track</a></td>
+                    <td> <a href="#">Attachment</a></td>
+                    <td> <a href="#">Contractor List</a></td>
+                    <td>
+                      <i class="material-icons pointer">star</i>
+                      <i class="material-icons pointer">star</i>
+                      <i class="material-icons pointer">star</i>
+                      <i class="material-icons pointer">star_border</i>
+                      <i class="material-icons pointer">star_border</i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>E1001</td>
+                    <td>Project 1</td>
+                    <td>kenya</td>
+                    <td> <a href="#">Status Track</a></td>
+                    <td> <a href="#">Attachment</a></td>
+                    <td> <a href="#">Contractor List</a></td>
+                    <td>
+                      <i class="material-icons pointer">star</i>
+                      <i class="material-icons pointer">star</i>
+                      <i class="material-icons pointer">star_border</i>
+                      <i class="material-icons pointer">star</i>
+                      <i class="material-icons pointer">star_border</i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

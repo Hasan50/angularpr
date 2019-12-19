@@ -1,0 +1,180 @@
+<div class="modal-header">
+  <h4 class="modal-title"
+    style="font-size: 17px;">ADD CONTRACTOR</h4>
+  <button type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.close('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12">
+      <form #form="ngForm"
+        novalidate>
+        <div class="form-group row">
+          <label for="UserName"
+            class="col-md-3 col-form-label">User Name</label>
+          <div class="col-md-9">
+            <input type="text"
+              name="UserName"
+              [(ngModel)]="ContractorOb.LoginId"
+              id="UserName"
+              class="form-control form-control-md"
+              maxlength="60"
+              #UserName="ngModel"
+              required>
+            <div class="input-group">
+              <div *ngIf="UserName.errors && (submitted||UserName.dirty || UserName.touched)">
+                <p *ngIf="UserName.errors.required"
+                  style="color:red">* User Name is required</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="Name"
+            class="col-md-3 col-form-label">Full Name</label>
+          <div class="col-md-9">
+            <input type="text"
+              name="Name"
+              [(ngModel)]="ContractorOb.Name"
+              id="Name"
+              class="form-control form-control-md"
+              maxlength="60"
+              #Name="ngModel"
+              required>
+            <div class="input-group">
+              <div *ngIf="Name.errors && (submitted||Name.dirty || Name.touched)">
+                <p *ngIf="Name.errors.required"
+                  style="color:red">* Full Name is required</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="Password"
+            class="col-md-3 col-form-label">Password</label>
+          <div class="col-md-9">
+            <input type="password"
+              name="Password"
+              [(ngModel)]="ContractorOb.Password"
+              id="Password"
+              class="form-control form-control-md"
+              maxlength="20"
+              minlength="6"
+              required
+              #Password="ngModel" />
+            <div class="input-group">
+              <div *ngIf="Password.invalid && (submitted || Password.touched)">
+                <p *ngIf="Password.errors.required"
+                  style="color:red"> Password is required. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="ConfirmPassword"
+            class="col-md-3 col-form-label">Confirm Password</label>
+          <div class="col-md-9">
+            <input type="password"
+              name="ConfirmPassword"
+              [(ngModel)]="ContractorOb.ConfirmPassword"
+              id="ConfirmPassword"
+              class="form-control form-control-md"
+              maxlength="20"
+              minlength="6"
+              pattern="{{ Password.value }}"
+              required
+              #ConfirmPassword="ngModel" />
+            <div *ngIf=" ConfirmPassword.invalid && (submitted || ConfirmPassword.touched)">
+              <p *ngIf="ConfirmPassword.errors.required"
+                style="color:red"> Confirm password is required. </p>
+              <p *ngIf="ConfirmPassword.errors.pattern"
+                style="color:red"> Password & Confirm Password does not match.</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="Email"
+            class="col-md-3 col-form-label">Email</label>
+          <div class="col-md-9">
+            <input type="text"
+              name="Email"
+              [(ngModel)]="ContractorOb.Email"
+              id="Email"
+              class="form-control form-control-md"
+              required
+              #Email="ngModel"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
+            <div class="input-group">
+              <div *ngIf="Email.errors &&(submitted||Email.touched || Email.dirty)">
+                <p *ngIf="Email.errors.required"
+                  style="color:red"> Email is required. </p>
+              </div>
+              <div [hidden]="!Email.errors?.pattern">
+                <p style="color:red"> Email is invalid. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="ContactNo"
+            class="col-md-3 col-form-label">Contact No</label>
+          <div class="col-md-9">
+            <input type="text"
+              name="ContactNo"
+              (keypress)="numberOnly($event)"
+              [(ngModel)]="ContractorOb.ContactNo"
+              id="ContactNo"
+              class="form-control form-control-md"
+              required
+              #ContactNo="ngModel" />
+            <div class="input-group">
+              <div *ngIf="ContactNo.errors &&(submitted||ContactNo.touched || ContactNo.dirty)">
+                <p *ngIf="ContactNo.errors.required"
+                  style="color:red"> Contact No is required. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="Location"
+            class="col-md-3 col-form-label">Address</label>
+          <div class="col-md-9">
+            <input type="text"
+              name="Location"
+              [(ngModel)]="ContractorOb.Location"
+              id="Location"
+              class="form-control form-control-md"
+              required
+              #Location="ngModel" />
+            <div class="input-group">
+              <div *ngIf="Location.errors &&(Location.touched || Location.dirty)">
+                <p *ngIf="Location.errors.required"
+                  style="color:red"> Address Is Required. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row"
+          style="padding-top: 20px">
+          <label for="IsActive"
+            style="margin-top: -10px"
+            class="col-md-3 col-form-label">Is Active</label>
+          <div class="col-md-9">
+            <mat-checkbox [(ngModel)]="ContractorOb.IsActive"
+              [ngModelOptions]="{standalone: true}"></mat-checkbox>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="submit"
+    class="btn btn-light"
+    (click)="SaveOrUpdate()">Save</button>
+</div>

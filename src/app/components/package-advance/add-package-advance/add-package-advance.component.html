@@ -1,0 +1,47 @@
+<div class="modal-header">
+  <h4 class="modal-title" style="font-size: 17px;">ADD PACKAGE ADVANCE</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12">
+      <form #form="ngForm" novalidate autocomplete="off" class="row">
+        <div class="col-md-6">
+          <mat-form-field>
+            <mat-label>Select package</mat-label>
+            <mat-select [(ngModel)]="PackageAdvanceOb.PackageId" #PackageId="ngModel" (ngModelChange)="onChange()"
+              name="PackageId">
+              <mat-option *ngFor="let x of packageList" value="{{x.Value}}">{{x.Text}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6 row">
+          <label class="col-sm-3">PeriodType</label>
+          <mat-radio-group aria-label="Select an option" [(ngModel)]="PackageAdvanceOb.PeriodType" #Gender="ngModel"
+            name='PeriodType' class="col-sm-9">
+            <mat-radio-button value="weekly" style="margin-right: 10px">Weekly</mat-radio-button>
+            <mat-radio-button value="monthly">Monthly</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Price" name="Amount" (keypress)="numberOnly($event)"
+              [(ngModel)]="PackageAdvanceOb.Amount" maxlength="60" #Amount="ngModel" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="Period Count" name="PeriodCount" (keypress)="numberOnly($event)"
+              [(ngModel)]="PackageAdvanceOb.PeriodCount" maxlength="60" #PeriodCount="ngModel" required>
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="activeModal.close('Cross click')">Close</button>
+  <button type="submit" class="btn btn-light" (click)="SaveOrUpdate()">{{popupModel.Id == "0"?"Save":"Update"}}</button>
+</div>

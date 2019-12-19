@@ -1,0 +1,168 @@
+<div class="modal-header">
+  <!-- <h4 class="modal-title"
+      style="font-size: 17px;">Contractor List</h4> -->
+  <button type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.close('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <mat-tab-group dynamicHeight
+      style="width: 100%"
+      mat-align-tabs="center">
+      <mat-tab label="Document List">
+        <div class="col-md-12"
+          #target>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+
+                  <th>Title</th>
+                  <th>Link</th>
+                  <th>File Name</th>
+                  <th>Actions</th>
+
+                </thead>
+                <tbody>
+                  <tr *ngFor="let a of documentList">
+                    <td>{{a.Title}}</td>
+                    <td style="word-break: break-all;">{{a.Link}}</td>
+                    <td>
+                      {{a.BlobName}}
+                      <!-- <a [attr.href]="~/UploadFiles/"
+                       +
+                        {{a.BlobName}}></a> -->
+                    </td>
+                    <td>
+                      <i class="material-icons pointer"
+                        ngbTooltip="Download"
+                        *ngIf="a.BlobName !=''"
+                        (click)="goToUrl(a.BlobName)">cloud_download</i>
+                      <i class="material-icons pointer"
+                        ngbTooltip="Delete"
+                        *ngIf="a.BlobName !=''"
+                        (click)="openConfirmationDialog(a)">delete</i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Add Document">
+        <div class="col-md-12">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div novalidate>
+                  <div class="row">
+                    <div class="col-md-3">Document Type</div>
+                    <div class="col-md-9"
+                      style="margin-top: 5px">
+                      <mat-radio-group id="IsDocument"
+                        [(ngModel)]="DocumentOb.IsDocument"
+                        name='IsDocument'
+                        class="form-control form-control-md"
+                        #IsDocument="ngModel">
+                        <mat-radio-button class="example-margin"
+                          (click)="showDiv(1)"
+                          value="false">Link</mat-radio-button>
+                        <mat-radio-button class="example-margin"
+                          (click)="showDiv(2)"
+                          value="true">File</mat-radio-button>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 col-form-label">Title</div>
+                    <div class="col-md-9">
+                      <input type="text"
+                        name="Title"
+                        [(ngModel)]="DocumentOb.Title"
+                        [ngModelOptions]="{standalone: true}"
+                        id="Title"
+                        class="form-control form-control-md"
+                        maxlength="60"
+                        #Title="ngModel"
+                        required>
+                      <div class="input-group">
+                        <div *ngIf="Title.errors && (submitted||Title.dirty || Title.touched)">
+                          <p *ngIf="Title.errors.required"
+                            style="color:red">Title is required</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row"
+                    *ngIf="LinkDiv"
+                    id="LinkDiv">
+                    <div class="col-md-3 col-form-label">Link</div>
+                    <div class="col-md-9">
+                      <input type="text"
+                        name="Link"
+                        [(ngModel)]="DocumentOb.Link"
+                        [ngModelOptions]="{standalone: true}"
+                        id="Link"
+                        class="form-control form-control-md"
+                        maxlength="100"
+                        minlength="20"
+                        required
+                        #Link="ngModel" />
+                      <div class="input-group">
+                        <div>
+                          <p *ngIf="Link.errors.required"
+                            style="color:red"> Link is required. </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row"
+                    *ngIf="FileDiv"
+                    id="FileDiv">
+                    <div class="col-md-3 col-form-label">Browse</div>
+                    <div class="col-md-9">
+                      <!-- <input type="file"
+                        name="BlobName"
+                        [(ngModel)]="DocumentOb.BlobName"
+                        [ngModelOptions]="{standalone: true}"
+                        id="BlobName"
+                        (change)="onSelectedFile($event)"
+                        class="form-control form-control-md"
+                        required
+                        #BlobName="ngModel"> -->
+                      <input type="file"
+                        name="BlobName"
+                        (change)="onSelectedFile($event)"
+                        [(ngModel)]="DocumentOb.BlobName"
+                        [ngModelOptions]="{standalone: true}"
+                        id="BlobName"
+                        class="form-control form-control-md"
+                        #BlobName="ngModel" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row form-group"
+              style="align-items: flex-start">
+              <button type="submit"
+                (click)="onSubmit()"
+                class="btn btn-success">Save</button>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="submit"
+    class="btn btn-danger"
+    (click)="activeModal.close()">Close</button>
+</div>

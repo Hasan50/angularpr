@@ -1,0 +1,82 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row"
+      style="margin-top: 50px;">
+      <div class="col-md-6"
+        style="padding-top: 11px;">
+        <p style="font-weight: bold;color: #9FABA4;">PROJECT STAGE</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col-md-3">
+                <mat-form-field *ngIf="ClientList != null">
+                  <mat-label>Select A Client</mat-label>
+                  <mat-select [(ngModel)]="clientId"
+                    (ngModelChange)="onClientChange(clientId)">
+                    <mat-option *ngFor="let x of ClientList"
+                      value="{{x.Value}}">{{x.Text}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-md-3">
+                <mat-form-field *ngIf="ProjectList != null">
+                  <mat-label>Select A Project</mat-label>
+                  <mat-select [(ngModel)]="projectId">
+                    <mat-option *ngFor="let x of ProjectList"
+                      value="{{x.Value}}">{{x.Text}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <button _ngcontent-xej-c8=""
+                  class="btn btn-success btn-round pull-right mat-raised-button"
+                  mat-raised-button=""
+                  (click)="openProjectStageAddOrEditPopup('0')"
+                  type="submit"><span class="mat-button-wrapper">ADD PROJECT STAGE</span>
+                  <div class="mat-button-ripple mat-ripple"
+                    matripple=""></div>
+                  <div class="mat-button-focus-overlay"></div>
+                </button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>Stage Name</th>
+                  <th>Level No</th>
+                  <th>Serial No</th>
+                  <th>Is Active</th>
+                  <th>Parent Id</th>
+                  <th>Actions</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let a of dataList">
+                    <td>{{a.Name}}</td>
+                    <td>{{a.LevelNo}}</td>
+                    <td>{{a.SerialNo}}</td>
+                    <td>{{a.IsActive}}</td>
+                    <td>{{a.ParentId}}</td>
+
+                    <!-- <td>
+                            <span *ngIf="a.IsActive"
+                              class="badge badge-success">{{a.Status}}</span>
+                            <span *ngIf="!a.IsActive"
+                              class="badge badge-warning">{{a.Status}}</span>
+                          </td> -->
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

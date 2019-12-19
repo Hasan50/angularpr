@@ -1,0 +1,53 @@
+// .btn-light {
+//   background-color: #961f0f !important;
+// }
+// .badge{
+//   font-size: 13px;
+//  }
+/* ::ng-deep .customModalWindow .modal-dialog { 
+    max-width: 70%;
+    width: 70%;
+} */
+
+.statusBlock {
+  background: green;
+  border-radius: 72px;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  padding-top: 33px;
+  align-items: center;
+  color: #fff;
+  // position: absolute;
+  font-size: 15px;
+}
+
+.statusCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.greenbg {
+  background-color: green;
+  color: white;
+}
+
+.whitebd {
+  background-color: white;
+  color: black;
+}
+.leader-line {
+  z-index: 1050 !important;
+}
+::ng-deep .customModalWindow .modal-dialog {
+  max-width: 70%;
+  width: 70%;
+}
+.title {
+  font-weight: bold;
+  color: #9faba4;
+}
+.titleDiv {
+  padding-left: 20px;
+  padding-bottom: 20px;
+}

@@ -1,0 +1,227 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url(../../../assets/font/Montserrat-Bold.otf);
+}
+
+.login-form {
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+img.login-form-icon {
+  width: 13px;
+  margin-right: 10px;
+}
+.row {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.login-right-form {
+  border: 5px solid;
+  border-color: #f5f5f0;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.image-container {
+  width: 50%;
+  margin: 0 auto;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+}
+.Welcome-body {
+  padding: 70px 0;
+  text-align: center;
+}
+.left-file-top {
+  background-color: #33a561;
+  padding: 80px 0 80px 0;
+}
+.bottom-left-section {
+  background-color: #19705b;
+  padding: 37px;
+}
+.bottom-right-section {
+  background-color: #dfe6e2;
+  padding: 37px;
+}
+.login-right-section {
+  padding-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+.login-right-image {
+  margin-top: 90px;
+}
+.SIGN-IN-Text {
+  /* width: 174px; */
+  height: 54px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  font-weight: bolder;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.23;
+  letter-spacing: normal;
+  text-align: center;
+  color: #961f0f;
+}
+.Intersection-1 {
+  height: 1px;
+  background-color: #ddddee;
+  width: 50%;
+  margin: 0 auto;
+}
+.login-title-below-text {
+  /* width: 370px; */
+  height: 48px;
+  font-family: OpenSans;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: center;
+  color: #6f7c8d;
+}
+.ha-button {
+  width: 80%;
+  /* height: 69px; */
+  /* border-radius: 11px; */
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 2px 27px 0 rgba(58, 150, 255, 0.42) !important;
+  background-color: #961f0f !important;
+  border-color: #961f0f;
+}
+.form-style {
+  width: 90%;
+  align-items: center;
+}
+.login-footer {
+  color: #8b959e;
+  margin-top: 150px;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  font-size: 10px;
+}
+.login-footer a {
+  color: #8b959e;
+}
+.login-footer-bottom {
+  color: #8b959e;
+  margin-top: 150px;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  font-size: 10px;
+}
+.login-footer-bottom a {
+  color: #8b959e;
+}
+/*
+================+/+/+/+/+/+/+/+/+/=================
+                    heigh
+================+/+/+/+/+/+/+/+/+/=================
+*/
+@media only screen and (min-width: 1366px) {
+  .login-footer-bottom {
+    display: none;
+  }
+  .form-style {
+    width: 90%;
+    padding-left: 20px;
+    align-items: center;
+  }
+}
+
+/*
+================+/+/+/+/+/+/+/+/+/=================
+                    medium
+================+/+/+/+/+/+/+/+/+/=================
+*/
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .login-footer-bottom {
+    display: none;
+  }
+  .form-style {
+    width: 90%;
+    padding-left: 20px;
+    align-items: center;
+  }
+}
+
+/*
+================+/+/+/+/+/+/+/+/+/=================
+                     tab
+================+/+/+/+/+/+/+/+/+/=================
+*/
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+}
+
+/*tablet layout:768px*/
+@media only screen and(min-width:768px) and (max-width: 991px) {
+  .login-footer-bottom {
+    display: none;
+  }
+  .form-style {
+    width: 90%;
+    padding-left: 20px;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .login-footer-bottom {
+    display: none;
+  }
+  .form-style {
+    width: 90%;
+    padding-left: 20px;
+    align-items: center;
+  }
+}
+
+/*
+================+/+/+/+/+/+/+/+/+/=================
+                    Mobile
+================+/+/+/+/+/+/+/+/+/=================
+*/
+@media only screen and (max-width: 767px) {
+}
+
+/*
+================+/+/+/+/+/+/+/+/+/=================
+                    wid device
+================+/+/+/+/+/+/+/+/+/=================
+*/
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .login-right-section {
+    padding-top: 60px;
+  }
+  .login-footer {
+    display: none;
+  }
+  .form-style {
+    width: 90%;
+    padding-left: 20px;
+    align-items: center;
+  }
+}
+
+/*=========================================================================
+                                The end
+==========================================================================*/

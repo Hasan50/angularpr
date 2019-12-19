@@ -1,0 +1,53 @@
+<div class="modal-header">
+  <h4 class="modal-title"
+    style="font-size: 17px;">Document List</h4>
+  <button type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.close('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12"
+      #target>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+
+              <th>Title</th>
+              <th>Link</th>
+              <th>File Name</th>
+              <th>Actions</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let a of documentList">
+                <td>{{a.Title}}</td>
+                <td style="word-break: break-all;">{{a.Link}}</td>
+                <td>
+                  {{a.BlobName}}
+                  <!-- <a [attr.href]="~/UploadFiles/"
+                 +
+                  {{a.BlobName}}></a> -->
+                </td>
+                <td>
+                  <i class="material-icons pointer"
+                    *ngIf="a.BlobName !=''"
+                    ngbTooltip="Download"
+                    (click)="goToUrl(a.BlobName)">cloud_download</i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="submit"
+    class="btn btn-danger"
+    (click)="activeModal.close()">Close</button>
+</div>

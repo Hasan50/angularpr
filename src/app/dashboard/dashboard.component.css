@@ -1,0 +1,97 @@
+
+
+.card .card-title {
+    margin: 0px;
+    margin-left: 0px;
+    font-size: 11px;
+    margin-bottom: -7px;
+    font-weight: bold;
+
+}
+.card-danger-arrow{
+    font-size: 9px;
+    font-weight: bold;
+    color: red;
+}
+.card-green-arrow{
+    font-size: 9px;
+    font-weight: bold;
+    color: green;
+}
+.card-danger-arrow label{
+    font-size: 9px;
+    font-weight: bold;
+    color: red;
+}
+.card-bottom{
+    margin-top: 27px;
+}
+.down-arrow-text{
+    font-size: 13px;
+    padding-top: 4px;
+}
+.up-arrow-text{
+    font-size: 13px;
+    padding-top: 4px;
+}
+p.card-text {
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+.repeat-card .card{
+    margin-top: 4px !important;
+    border-radius: 5px !important;
+}
+.ha-card-header{
+    background: #457859;
+    padding: 6px;
+    color: #fff;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.ha-card-header-geen-light{
+    background: #567845;
+    padding: 6px;
+    color: #fff;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.ha-card-header-red-light{
+    background: #784545;
+    padding: 6px;
+    color: #fff;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.ha-card-header-title{
+    margin:  0px;
+    font-weight: bold;
+    font-size: 15px;
+}
+.repeat-card .card {
+    margin-bottom: 2px;
+}
+.file-id-text{
+    color: green;
+    font-weight: bold;
+    font-size: 10px;
+    margin: 0px;
+}
+.ha-card-label-ash {
+    color: #9FB0C1;
+    font-size: 11px;
+    font-weight: bold;
+}
+.margin-zero{
+    margin: 0px;
+}
+.ha-card-label-value {
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 5px;
+}
+.value-green {
+    font-size: 13px;
+    color: green;
+    font-weight: bold;
+}

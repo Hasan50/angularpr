@@ -1,0 +1,32 @@
+.btn-light {
+    background-color: #961f0f !important;
+}
+.badge {
+  font-size: 13px;
+}
+
+.statusBlock {
+  background: green;
+  border-radius: 72px;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  padding-top: 33px;
+  color: #fff;
+}
+
+.statusCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.label{
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+}
+.label-success{
+  border-color: rgba(76, 175, 79, 0.9);
+  color: rgba(76, 175, 79, 0.9);
+}

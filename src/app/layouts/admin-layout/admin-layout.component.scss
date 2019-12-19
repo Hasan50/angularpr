@@ -1,0 +1,17 @@
+.sidebar .sidebar-background:after {
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    content: "";
+    display: block;
+    background: #993124;
+    opacity: .93;
+}
+.sidebar{
+    color:#fff !important;
+}
+.sidebar .nav li a, .sidebar .nav li .dropdown-menu a{
+    margin: 0px!important;
+    color:#fff !important;
+}

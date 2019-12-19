@@ -1,0 +1,69 @@
+<div class="modal-header">
+  <h4 class="modal-title" style="font-size: 17px;">SELECT EMPLOYEE</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+  
+            <div class="card-body">
+              <div class="table-responsive">
+  
+                <table class="table">
+                  <thead class=" text-primary">
+  
+                    <th>Employee Code</th>
+                    <th>User Name</th>
+                    <th>Full Name</th>
+                    <th>Contact No</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Actions</th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let a of dataList" (dblclick)="popUpClose(a)">
+  
+                      <td>{{a.EmployeeCode}}</td>
+                      <td>{{a.UserName}}</td>
+                      <td>{{a.FullName}}</td>
+                      <td>{{a.PhoneNumber}}</td>
+                      <td>{{a.Email}}</td>
+                      <td>{{a.Address}}</td>
+                      <td>
+                        <i class="material-icons pointer"
+                          ngbTooltip="Edit"
+                          tooltipClass="tooltipClass"
+                          (click)="openClientEditPopup(a.Id)">edit</i>
+                        <i class="material-icons pointer"
+                          ngbTooltip="Delete"
+                          tooltipClass="tooltipClass"
+                          (click)="openConfirmationDialog(a.Id)">delete</i>
+                        <!-- <i class="material-icons pointer"
+                          (click)="openClientAddOrEditPopup(a.Id)">assignment</i> -->
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="d-block text-center card-footer">
+                <ngb-pagination *ngIf="totalItems > 10"
+                  [pageSize]="itemsPerPage"
+                  [collectionSize]="totalItems"
+                  [(page)]="page"
+                  [maxSize]="7"
+                  [rotate]="true"
+                  [boundaryLinks]="true"
+                  (pageChange)="loadPage($event)"></ngb-pagination>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="activeModal.close('Cross click')">Close</button>
+  <button type="submit" class="btn btn-light" (click)="SaveOrUpdate()">{{popupModel.Id == "0"?"Save":"Update"}}</button>
+</div>

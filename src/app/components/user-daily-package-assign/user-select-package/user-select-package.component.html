@@ -1,0 +1,35 @@
+<div class="modal-header">
+  <h4 class="modal-title" style="font-size: 17px;">SELECT USER</h4>
+  <button type="button" class="close" aria-label="Close" (click)="popUpClose(null)">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+
+        <table class="table">
+          <tbody>
+            <tr *ngFor="let a of packageList">
+
+              <td colspan="2">
+                  <mat-checkbox class="col-sm-12" id="{{a.Value}}" name="{{a.Text}}"
+                  [(ngModel)]="a.Selected" #Selected="ngModel" (change)="onCheckboxChange(a, $event)">{{a.Text}}
+                    </mat-checkbox>
+              </td>
+              <td>
+                  <input id="Count" class="e-field e-input" type="text"
+                  [(ngModel)]="a.Count"  #Count="ngModel" name="Count"
+                      style="width: 100%" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="submit" class="btn btn-light" (click)="SavePackageAssign()">{{popupModel.Id == "0"?"Save":"Update"}}</button>
+</div>
