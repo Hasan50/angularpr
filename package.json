@@ -40,7 +40,7 @@
     "@syncfusion/ej2-angular-schedule": "^17.3.17",
     "ag-grid-angular": "^21.0.1",
     "ag-grid-community": "^21.0.1",
-    "ajv": "6.4.0",
+    "ajv": "6.12.3",
     "angular-draggable-droppable": "^3.0.1",
     "angular-sortablejs": "^2.5.2",
     "arrive": "2.4.1",
